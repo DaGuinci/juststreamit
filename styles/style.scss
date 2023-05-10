@@ -1,0 +1,25 @@
+// Variavbles
+$clean: #A7D2CB;
+$butter: #F2D388;
+$salmon: #C98474;
+$eggplant: #874C62;
+
+// Reset marges
+html,
+body,
+div,
+p,
+h1,
+h2,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.mainContainer{
+    background-color: $butter;
+
+    .headerBlock{
+        background-color: $eggplant ;
+    }
+}

@@ -1,0 +1,19 @@
+html,
+body,
+div,
+p,
+h1,
+h2,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.mainContainer {
+  background-color: #F2D388;
+}
+.mainContainer .headerBlock {
+  background-color: #874C62;
+}
+
+/*# sourceMappingURL=style.css.map */
