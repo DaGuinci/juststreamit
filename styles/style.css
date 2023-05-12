@@ -9,10 +9,68 @@ ul {
   margin: 0;
 }
 
-.mainContainer {
+body {
   background-color: #F2D388;
 }
-.mainContainer .headerBlock {
+body .mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+body .mainContainer .header {
+  display: flex;
+  justify-content: center;
+  background-color: #874C62;
+}
+body .mainContainer .header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  padding: 30px 0;
+}
+body .mainContainer .header__content__right ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+body .mainContainer .moviesBlock {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+  gap: 70px;
+}
+body .mainContainer .moviesBlock__highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60%;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: right;
+}
+body .mainContainer .moviesBlock__highlight__description {
+  text-align: center;
+  width: 50%;
+}
+body .mainContainer .moviesBlock__highlight__buttons {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+body .mainContainer .moviesBlock__highlight__buttons button {
+  background-color: #C98474;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  transition-duration: 0.4s;
+}
+body .mainContainer .moviesBlock__highlight__buttons button:hover {
   background-color: #874C62;
 }
 

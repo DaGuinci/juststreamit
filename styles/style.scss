@@ -16,10 +16,85 @@ ul {
     margin: 0;
 }
 
-.mainContainer{
-    background-color: $butter;
+// Templates
+@mixin main-button{
+    background-color: $salmon;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    transition-duration: 0.4s;
 
-    .headerBlock{
-        background-color: $eggplant ;
+    &:hover{
+        background-color: $eggplant;
     }
+}
+
+body{
+    background-color: $butter;
+    .mainContainer{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+
+        .header{
+            display: flex;
+            justify-content: center;
+            background-color: $eggplant;
+
+            &__content{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 1200px;
+                padding: 30px 0;
+
+                &__right{
+
+                    ul{
+                        list-style: none;
+                        display: flex;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+
+        .moviesBlock{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 100px;
+            gap: 70px;
+
+            &__highlight{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 60%;
+                height: 400px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position-x: right;
+
+                &__description{
+                    text-align: center;
+                    width: 50%;
+                }
+
+                &__buttons{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+
+                    button{
+                        @include main-button();
+                    }
+                }
+            }
+        }
+    }
+
 }
