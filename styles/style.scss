@@ -16,6 +16,10 @@ ul {
     margin: 0;
 }
 
+h2{
+    text-align: center;
+}
+
 // Templates
 @mixin main-button{
     background-color: $salmon;
@@ -94,7 +98,63 @@ body{
                     }
                 }
             }
+
+            &__categories{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                &__category{
+                    width: 1200px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    align-items: center;
+
+                    h2{
+                        width: 100%;
+                    }
+
+                    .arrow{
+                        width: 50px;
+                        height: 50px;
+                        mask-size: contain;
+                        mask-repeat: no-repeat;
+                        background-color: $eggplant;
+                    }
+
+                    .carouselContainer{
+                        display: flex;
+                        justify-content: space-around;
+                        height: 300px;
+                        width: 1000px;
+                        overflow: hidden;
+
+                        .carouselContent{
+                            display: flex;
+                            width: 1000px;
+                            position: relative;
+                            left: 0;
+                            transition: left .5s;
+
+                            .movie{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                min-width: 250px;
+
+                                .thumbnail{
+                                    width: 100%;
+                                    height: 80%;
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    background-position: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-
 }
