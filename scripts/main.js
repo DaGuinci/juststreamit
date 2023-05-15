@@ -1,6 +1,10 @@
 import {Movie} from './classes/movie.js'
 import { api_request } from './classes/request.js';
-const movie_infos = api_request()
+
+// Tester le retour de la fonction request
+const atts = [];
+const movies_infos = await api_request(atts);
+const movie_infos = movies_infos[0];
 
 // Insérer une image pour le film en highlight
 const highlight_movie = document.querySelector('.moviesBlock__highlight');

@@ -155,7 +155,7 @@ body .modale {
 }
 body .modale__close {
   width: 30px;
-  height: 30px;
+  min-height: 30px;
   background-size: contain;
   cursor: pointer;
 }
