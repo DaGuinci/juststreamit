@@ -2,6 +2,7 @@
 const highlight_movie = document.querySelector('.moviesBlock__highlight');
 const movie_img = 'https://m.media-amazon.com/images/M/MV5BNWVkNjUyYjUtZGU1Yi00YTM4LTg5ZGEtYmNlNDAzNWRjODM2XkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg'
 highlight_movie.style.backgroundImage = `url('${movie_img}')`;
+const modale = document.querySelector('.modale');
 
 // Cr€er un mockup d'images
 const images = ['https://m.media-amazon.com/images/M/MV5BOTU4NWQzMmQtMWU1Ni00NTFlLTg3MDctNTU0ZmViZDQ2NTY0XkEyXkFqcGdeQXVyODMyMTEyMzM@._V1_UX182_CR0,0,182,268_AL_.jpg',
@@ -61,6 +62,11 @@ for (let j=0; j<categories.length; j++) {
         // Intégrer le conteneur dans le carousel
         carousel_content.appendChild(movie_container);
         thumbnail.style.backgroundImage = `url('${images[k]}')`;
+
+        // Activer la modale au clic sur un film
+        movie_container.addEventListener("click", function() {
+            modale.style.left = '0';
+        });
     }
 
     // créer un repére de position
@@ -95,3 +101,54 @@ for (let j=0; j<categories.length; j++) {
         }
       });
 }
+
+// remplir la fenetre modale
+function fullfill_modale() {
+    // const picture = 'https://m.media-amazon.com/images/M/MV5BMzgxZjk1NjUtMTkxMS00YjQ0LTlmNzMtNDUxZDFmMTdmZmM5XkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_UY268_CR6,0,182,268_AL_.jpg';
+    // const title = 'Le salaire de l\'amour';
+    // const rating = '18/20';
+    // const score = '83%';
+    // const director = 'Guillaume McEven';
+    // const casting = 'Vincent Cassel, Hubert Koundé, Saïd Taghmaoui, Karim Belkhadra, Marc Duret';
+    // const duration = '1h53';
+    // const country = 'France';
+    // const box_office = '6 349 milliards'
+    // const synopsis = 'Le récit se déroule au lendemain d\'une nuit d\'émeutes opposant\
+    // de jeunes voyous à la police, dans la cité des Muguets à Chanteloup-les-Vignes, en région parisienne.\
+    // Ces émeutes sont consécutives à la tentative d\'assassinat commise par un inspecteur du commissariat\
+    // qui a provoqué la mise en coma d\'un jeune résident de la cité, Abdel Ichaha, lors d\'une garde à vue.\
+    // Pendant les émeutes, un policier perd son revolver.;';
+    const datas = [
+        ['title', 'Le salaire de l\'amour'],
+        ['category', 'Thriller'],
+        ['date', '5 novembre 1981'],
+        ['rating', '18/20'],
+        ['score', '83%'],
+        ['director', 'Guillaume McEven'],
+        ['casting', 'Vincent Cassel, Hubert Koundé, Saïd Taghmaoui, Karim Belkhadra, Marc Duret'],
+        ['duration', '1h53'],
+        ['country', 'France'],
+        ['boxOffice', '6 349 milliards'],
+        ['synopsis', 'Le récit se déroule au lendemain d\'une nuit d\'émeutes opposantde jeunes voyous à la police, dans la cité des Muguets à Chanteloup-les-Vignes, en région parisienne.\
+        Ces émeutes sont consécutives à la tentative d\'assassinat commise par un inspecteur du commissariat\
+        qui a provoqué la mise en coma d\'un jeune résident de la cité, Abdel Ichaha, lors d\'une garde à vue.\
+        Pendant les émeutes, un policier perd son revolver.']
+    ];
+
+    const picture = modale.querySelector('.modale__content__picture');
+    picture.style.backgroundImage = 'url(https://m.media-amazon.com/images/M/MV5BMzgxZjk1NjUtMTkxMS00YjQ0LTlmNzMtNDUxZDFmMTdmZmM5XkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_UY268_CR6,0,182,268_AL_.jpg)';
+
+
+    for (let i=0; i<datas.length; i++) {
+        const element = modale.querySelector(`.${datas[i][0]}`);
+        element.innerHTML = datas[i][1];
+    }
+
+    // Activer le bouton close
+    const close = modale.querySelector('.modale__close');
+    close.addEventListener("click", function() {
+        modale.style.left = '-80%';
+    });
+}
+
+fullfill_modale();
