@@ -63,32 +63,35 @@ for (let j=0; j<categories.length; j++) {
         thumbnail.style.backgroundImage = `url('${images[k]}')`;
     }
 
+    // créer un repére de position
+    let position = 0;
+
     // Créer les fleches
     const left_arrow = document.createElement('div');
     left_arrow.classList.add('arrow');
-    left_arrow.style.maskImage = 'url(./src/back.svg)';
+    left_arrow.style.maskImage = 'url(./src/arrow.svg)';
     category_container.appendChild(left_arrow);
     left_arrow.parentNode.insertBefore(left_arrow, carousel_container);
 
     const right_arrow = document.createElement('div');
     right_arrow.classList.add('arrow');
-    right_arrow.style.maskImage = 'url(./src/back.svg)';
+    right_arrow.style.maskImage = 'url(./src/arrow.svg)';
     right_arrow.style.transform = "scaleX(-1)";
     category_container.appendChild(right_arrow);
 
     // Rendre les flèches fonctionnelles
     left_arrow.addEventListener("click", function() {
-        const style = window.getComputedStyle(carousel_content);
-        const position = style.getPropertyValue('left');
-        const new_position = parseInt(position) - 250;
-        carousel_content.style.left = `${new_position}px`;
+        if (position < 0){
+            position ++;
+            carousel_content.style.left = `${position*250}px`;
+        }
     });
 
         // Rendre les flèches fonctionnelles
     right_arrow.addEventListener("click", function() {
-        const style = window.getComputedStyle(carousel_content);
-        const position = style.getPropertyValue('left');
-        const new_position = parseInt(position) + 250;
-        carousel_content.style.left = `${new_position}px`;
+        if (position >= -3){
+            position --;
+            carousel_content.style.left = `${position*250}px`;
+        }
       });
 }

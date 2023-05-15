@@ -73,6 +73,7 @@ body .mainContainer .moviesBlock__highlight__buttons button {
   font-size: 1.5rem;
   padding: 10px 20px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 body .mainContainer .moviesBlock__highlight__buttons button:hover {
   background-color: #874C62;
@@ -98,6 +99,7 @@ body .mainContainer .moviesBlock__categories__category .arrow {
   mask-size: contain;
   mask-repeat: no-repeat;
   background-color: #874C62;
+  cursor: pointer;
 }
 body .mainContainer .moviesBlock__categories__category .carouselContainer {
   display: flex;

@@ -26,6 +26,7 @@ h2{
     font-size: 1.5rem;
     padding: 10px 20px;
     transition-duration: 0.4s;
+    cursor: pointer;
 
     &:hover{
         background-color: $eggplant;
@@ -121,6 +122,7 @@ body{
                         mask-size: contain;
                         mask-repeat: no-repeat;
                         background-color: $eggplant;
+                        cursor: pointer;
                     }
 
                     .carouselContainer{
