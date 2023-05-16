@@ -1,12 +1,6 @@
 import {Movie} from './classes/movie.js'
 import { api_request } from './classes/request.js';
 
-// Tester le retour de la fonction request
-// let type = '';
-// const atts = [];
-// const movies_infos = await api_request(atts);
-// const movie_infos = movies_infos[0];
-
 // Récupérer les informations sur le film en highlight
 let type = 'highlight'
 const request = await api_request(type);
@@ -17,6 +11,15 @@ const highlight_movie = document.querySelector('.moviesBlock__highlight');
 highlight_movie.style.backgroundImage = `url('${highlight_infos.image_url}')`;
 const highlight_title_tag = document.querySelector('.movieTitle');
 highlight_title_tag.innerHTML = highlight_infos.title;
+const highlight_description = highlight_movie.querySelector('.moviesBlock__highlight__description');
+highlight_description.innerHTML = highlight_infos.description ? highlight_infos.description : 'NC';
+
+// Activer la modale
+highlight_movie.addEventListener("click", function() {
+    fullfill_modale(highlight_infos);
+    out_of_modale.style.left = '0';
+    modale.style.left = '0';
+});
 
 // Préparer le clic hors modale pour fermeture modale
 const out_of_modale = document.querySelector('.outOfModale');
@@ -90,16 +93,15 @@ for (let j=0; j<categories.length; j++) {
     const carousel_container = document.createElement('div');
     carousel_container.classList.add('carouselContainer');
     category_container.appendChild(carousel_container);
+    const carousel_content = document.createElement('div');
+    carousel_content.classList.add('carouselContent')
+    carousel_container.appendChild(carousel_content);
 
     if (category_infos.length == 0) {
         carousel_container.innerHTML = 'Aucun film  ne correspond à cette catégorie.';
     } else {
-        const carousel_content = document.createElement('div');
-        carousel_content.classList.add('carouselContent')
-        carousel_container.appendChild(carousel_content);
-
         // Ajouter les films dans le carousel
-        for (let k=0; k<6; k++) {
+        for (let k=0; k<7; k++) {
             // Créer le conteneur
             const movie_container = document.createElement('div');
             movie_container.classList.add('movie', `movie_${k+1}`);
