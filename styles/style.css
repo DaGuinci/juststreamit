@@ -52,8 +52,13 @@ body .mainContainer .header__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1200px;
+  width: 800px;
   padding: 30px 0;
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .header__content {
+    width: 1200px;
+  }
 }
 body .mainContainer .header__content__right ul {
   list-style: none;
@@ -61,13 +66,18 @@ body .mainContainer .header__content__right ul {
   gap: 20px;
 }
 body .mainContainer .moviesBlock {
-  width: 1200px;
+  position: relative;
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 100px;
   gap: 70px;
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock {
+    max-width: 1200px;
+  }
 }
 body .mainContainer .moviesBlock__highlight {
   display: flex;
@@ -112,18 +122,29 @@ body .mainContainer .moviesBlock__categories {
   gap: 100px;
 }
 body .mainContainer .moviesBlock__categories__category {
-  width: 1200px;
+  max-width: 1200px;
+  padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   align-items: center;
   justify-content: center;
+}
+@media screen and (min-width: 700px) {
+  body .mainContainer .moviesBlock__categories__category {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock__categories__category {
+    gap: 20px;
+  }
 }
 body .mainContainer .moviesBlock__categories__category h2 {
   width: 100%;
   margin-bottom: 20px;
 }
 body .mainContainer .moviesBlock__categories__category .arrow {
+  display: none;
   width: 50px;
   height: 50px;
   mask-size: contain;
@@ -131,19 +152,44 @@ body .mainContainer .moviesBlock__categories__category .arrow {
   background-color: #874C62;
   cursor: pointer;
 }
+@media screen and (min-width: 700px) {
+  body .mainContainer .moviesBlock__categories__category .arrow {
+    display: inline-block;
+  }
+}
 body .mainContainer .moviesBlock__categories__category .carouselContainer {
   display: flex;
   justify-content: space-around;
-  height: 300px;
-  width: 1000px;
-  overflow: hidden;
+  height: fit-content;
+  width: 460px;
+  overflow-x: scroll;
+}
+@media screen and (min-width: 900px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer {
+    overflow: hidden;
+    width: 750px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer {
+    width: 1000px;
+  }
 }
 body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent {
   display: flex;
-  width: 1000px;
+  width: 500px;
   position: relative;
-  left: 0;
   transition: left 0.5s;
+}
+@media screen and (min-width: 900px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent {
+    width: 750px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent {
+    width: 1000px;
+  }
 }
 body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent .movie {
   display: flex;

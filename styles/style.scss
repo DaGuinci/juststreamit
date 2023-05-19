@@ -4,6 +4,10 @@ $primary-color: #F2D388;
 $salmon: #C98474;
 $secondary-color: #874C62;
 
+$xlarge: 1200px;
+$large: 900px;
+$medium: 700px;
+
 // Reset marges
 html,
 body,
@@ -73,8 +77,13 @@ body{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                width: 1200px;
+                width: 800px;
                 padding: 30px 0;
+
+                @media screen and (min-width: $xlarge) {
+                    width: 1200px;
+                }
+
 
                 &__right{
 
@@ -88,13 +97,17 @@ body{
         }
 
         .moviesBlock{
-            width: 1200px;
+            position: relative;
             margin: auto;
             display: flex;
             align-items: center;
             flex-direction: column;
             padding-top: 100px;
             gap: 70px;
+
+            @media screen and (min-width: $xlarge) {
+                max-width: 1200px;
+            }
 
             &__highlight{
                 display: flex;
@@ -138,12 +151,20 @@ body{
                 gap: 100px;
 
                 &__category{
-                    width: 1200px;
+                    max-width: 1200px;
+                    padding: 0 20px;
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 20px;
                     align-items: center;
                     justify-content: center;
+
+                    @media screen and (min-width: $medium) {
+                        padding: 0;
+                    }
+
+                    @media screen and (min-width: $xlarge) {
+                        gap: 20px;
+                    }
 
                     h2{
                         width: 100%;
@@ -151,27 +172,49 @@ body{
                     }
 
                     .arrow{
+                        display: none;
                         width: 50px;
                         height: 50px;
                         mask-size: contain;
                         mask-repeat: no-repeat;
                         background-color: $secondary-color;
                         cursor: pointer;
+
+                        @media screen and (min-width: $medium) {
+                            display: inline-block;
+                        }
                     }
 
                     .carouselContainer{
                         display: flex;
                         justify-content: space-around;
-                        height: 300px;
-                        width: 1000px;
-                        overflow: hidden;
+                        height: fit-content;
+                        width: 460px;
+                        overflow-x: scroll;
+
+                        @media screen and (min-width: $large) {
+                            overflow: hidden;
+                            width: 750px;
+                        }
+
+                        @media screen and (min-width: $xlarge) {
+                            width: 1000px;
+                        }
 
                         .carouselContent{
                             display: flex;
-                            width: 1000px;
+                            width: 500px;
                             position: relative;
-                            left: 0;
+                            // left: 0;
                             transition: left .5s;
+
+                            @media screen and (min-width: $large) {
+                                width: 750px;
+                            }
+
+                            @media screen and (min-width: $xlarge) {
+                                width: 1000px;
+                            }
 
                             .movie{
                                 display: flex;
