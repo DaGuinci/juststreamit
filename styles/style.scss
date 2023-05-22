@@ -5,8 +5,8 @@ $salmon: #C98474;
 $secondary-color: #874C62;
 
 $xlarge: 1200px;
-$large: 900px;
-$medium: 700px;
+$large: 800px;
+$medium: 600px;
 
 // Reset marges
 html,
@@ -18,6 +18,7 @@ h2,
 h3,
 h4,
 ul {
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
@@ -27,12 +28,17 @@ html, body {
 }
 
 h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
+
+    @media screen and (min-width: $xlarge) {
+        font-size: 2rem;
+    }
 }
 
 h3{
     text-align: center;
+    font-size: 1rem;
 }
 
 // Templates
@@ -58,7 +64,11 @@ body{
         flex-direction: column;
         align-content: center;
         height: fit-content;
-        padding-bottom: 100px;
+        padding-bottom: 50px;
+
+        @media screen and (min-width: $xlarge) {
+            padding-bottom: 100px;
+        }
 
         .outOfModale{
             position: absolute;
@@ -75,15 +85,22 @@ body{
 
             &__content{
                 display: flex;
+                flex-direction: column;
+                gap: 20px;
                 justify-content: space-between;
                 align-items: center;
                 width: 800px;
-                padding: 30px 0;
+                padding: 30px 30px;
+
+                @media screen and (min-width: $medium) {
+                    flex-direction: row;
+                    gap: 0;
+                }
 
                 @media screen and (min-width: $xlarge) {
                     width: 1200px;
+                    padding: 30px 0;
                 }
-
 
                 &__right{
 
@@ -98,11 +115,13 @@ body{
 
         .moviesBlock{
             position: relative;
+            width: 100%;
             margin: auto;
             display: flex;
             align-items: center;
             flex-direction: column;
-            padding-top: 100px;
+            // padding-top: 100px; chane
+            padding-top: 30px;
             gap: 70px;
 
             @media screen and (min-width: $xlarge) {
@@ -110,49 +129,80 @@ body{
             }
 
             &__highlight{
+                width: 90%;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 40px;
-                width: 60%;
-                height: 400px;
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position-x: right;
                 cursor: pointer;
+                gap: 30px;
 
-                &__title{
-                    width: 50%;
-
-                    h2{
-                        text-align: start;
-                    }
+                @media screen and (min-width: $medium) {
+                    width: 80%;
+                    flex-direction: row;
                 }
 
-                &__buttons{
-                    width: 50%;
-                    display: flex;
-                    gap: 20px;
+                @media screen and (min-width: $large) {
+                    width: 70%;
+                }
 
-                    button{
-                        @include main-button();
-                    }
+                @media screen and (min-width: $xlarge) {
+                    width: 60%;
                 }
 
                 &__description{
-                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 30px;
+
+                    &__buttons{
+                        width: 50%;
+                        display: flex;
+                        gap: 20px;
+
+                        button{
+                            @include main-button();
+                        }
+                    }
+
+                }
+
+                &__picture{
+                    min-width: 180px;
+                    height: 270px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+
+                    @media screen and (min-width: $medium) {
+                        min-width: 200px;
+                        height: 300px;
+                    }
+
+                    @media screen and (min-width: $large) {
+                        min-width: 250px;
+                        height: 370px;
+                    }
+
+                    @media screen and (min-width: $xlarge) {
+                        min-width: 300px;
+                        height: 450px;
+                    }
                 }
             }
 
             &__categories{
                 display: flex;
                 flex-direction: column;
-                gap: 100px;
+                width: 90%;
+                gap: 50px;
+
+                @media screen and (min-width: $xlarge) {
+                    width: 100%;
+                    gap: 100px;
+                }
 
                 &__category{
                     max-width: 1200px;
-                    padding: 0 20px;
                     display: flex;
                     flex-wrap: wrap;
                     align-items: center;
@@ -162,13 +212,13 @@ body{
                         padding: 0;
                     }
 
-                    @media screen and (min-width: $xlarge) {
-                        gap: 20px;
-                    }
-
                     h2{
                         width: 100%;
                         margin-bottom: 20px;
+
+                        @media screen and (min-width: $xlarge) {
+                            margin-bottom: 40px;
+                        }
                     }
 
                     .arrow{
@@ -180,21 +230,27 @@ body{
                         background-color: $secondary-color;
                         cursor: pointer;
 
-                        @media screen and (min-width: $medium) {
+                        @media screen and (min-width: 1000px) {
                             display: inline-block;
                         }
                     }
 
                     .carouselContainer{
                         display: flex;
-                        justify-content: space-around;
                         height: fit-content;
-                        width: 460px;
+                        width: 100%;
                         overflow-x: scroll;
 
+                        @media screen and (min-width: $medium) {
+                            width: 500px;
+                        }
+
                         @media screen and (min-width: $large) {
-                            overflow: hidden;
                             width: 750px;
+                        }
+
+                        @media screen and (min-width: 1000px) {
+                            overflow: hidden;
                         }
 
                         @media screen and (min-width: $xlarge) {
@@ -202,14 +258,15 @@ body{
                         }
 
                         .carouselContent{
-                            display: flex;
-                            width: 500px;
                             position: relative;
-                            // left: 0;
+                            width: 500px;
+                            display: flex;
+                            gap: 10px;
+                            left: 0;
                             transition: left .5s;
 
-                            @media screen and (min-width: $large) {
-                                width: 750px;
+                            @media screen and (min-width: $medium) {
+                                gap: 0;
                             }
 
                             @media screen and (min-width: $xlarge) {
@@ -219,17 +276,26 @@ body{
                             .movie{
                                 display: flex;
                                 flex-direction: column;
+                                padding-bottom: 10px;
                                 gap: 20px;
                                 align-items: center;
-                                min-width: 250px;
+                                min-width: 100px;
                                 cursor: pointer;
+
+                                @media screen and (min-width: $medium) {
+                                    min-width: 250px;
+                                }
 
                                 .thumbnail{
                                     width: 100%;
-                                    min-height: 260px;
+                                    min-height: 160px;
                                     background-repeat: no-repeat;
                                     background-size: contain;
                                     background-position: center;
+
+                                    @media screen and (min-width: $medium) {
+                                        min-height: 260px;
+                                    }
                                 }
                             }
                         }
@@ -242,12 +308,12 @@ body{
     .modale{
         position: fixed;
         top: 0;
-        left: -80%;
+        left: -100%;
         z-index: 100;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        width: 70%;
+        width: 90%;
         height: 95vh;
         padding: 20px;
         border: 2px solid $secondary-color;
@@ -255,6 +321,11 @@ body{
         background-color: $primary-color;
         transition: left .5s;
         overflow-y: scroll;
+
+        @media screen and (min-width: $medium) {
+            width: 70%;
+            left: -80%;
+        }
 
         &__close{
             width: 30px;
@@ -265,8 +336,13 @@ body{
 
         &__content{
             display: flex;
+            flex-direction: column;
             gap: 50px;
             width: 100%;
+
+            @media screen and (min-width: $xlarge) {
+                flex-direction: row;
+            }
 
             &__picture{
                 min-width: 300px;

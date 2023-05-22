@@ -7,6 +7,7 @@ h2,
 h3,
 h4,
 ul {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -16,12 +17,18 @@ html, body {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
+}
+@media screen and (min-width: 1200px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 h3 {
   text-align: center;
+  font-size: 1rem;
 }
 
 body {
@@ -34,7 +41,12 @@ body .mainContainer {
   flex-direction: column;
   align-content: center;
   height: fit-content;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer {
+    padding-bottom: 100px;
+  }
 }
 body .mainContainer .outOfModale {
   position: absolute;
@@ -50,14 +62,23 @@ body .mainContainer .header {
 }
 body .mainContainer .header__content {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: space-between;
   align-items: center;
   width: 800px;
-  padding: 30px 0;
+  padding: 30px 30px;
+}
+@media screen and (min-width: 600px) {
+  body .mainContainer .header__content {
+    flex-direction: row;
+    gap: 0;
+  }
 }
 @media screen and (min-width: 1200px) {
   body .mainContainer .header__content {
     width: 1200px;
+    padding: 30px 0;
   }
 }
 body .mainContainer .header__content__right ul {
@@ -67,11 +88,12 @@ body .mainContainer .header__content__right ul {
 }
 body .mainContainer .moviesBlock {
   position: relative;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 30px;
   gap: 70px;
 }
 @media screen and (min-width: 1200px) {
@@ -80,68 +102,106 @@ body .mainContainer .moviesBlock {
   }
 }
 body .mainContainer .moviesBlock__highlight {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 30px;
+}
+@media screen and (min-width: 600px) {
+  body .mainContainer .moviesBlock__highlight {
+    width: 80%;
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 800px) {
+  body .mainContainer .moviesBlock__highlight {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock__highlight {
+    width: 60%;
+  }
+}
+body .mainContainer .moviesBlock__highlight__description {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
-  width: 60%;
-  height: 400px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-x: right;
-  cursor: pointer;
+  gap: 30px;
 }
-body .mainContainer .moviesBlock__highlight__title {
-  width: 50%;
-}
-body .mainContainer .moviesBlock__highlight__title h2 {
-  text-align: start;
-}
-body .mainContainer .moviesBlock__highlight__buttons {
+body .mainContainer .moviesBlock__highlight__description__buttons {
   width: 50%;
   display: flex;
   gap: 20px;
 }
-body .mainContainer .moviesBlock__highlight__buttons button {
+body .mainContainer .moviesBlock__highlight__description__buttons button {
   background-color: #C98474;
   font-size: 1.5rem;
   padding: 10px 20px;
   transition-duration: 0.4s;
   cursor: pointer;
 }
-body .mainContainer .moviesBlock__highlight__buttons button:hover {
+body .mainContainer .moviesBlock__highlight__description__buttons button:hover {
   background-color: #874C62;
 }
-body .mainContainer .moviesBlock__highlight__description {
-  width: 50%;
+body .mainContainer .moviesBlock__highlight__picture {
+  min-width: 180px;
+  height: 270px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 600px) {
+  body .mainContainer .moviesBlock__highlight__picture {
+    min-width: 200px;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 800px) {
+  body .mainContainer .moviesBlock__highlight__picture {
+    min-width: 250px;
+    height: 370px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock__highlight__picture {
+    min-width: 300px;
+    height: 450px;
+  }
 }
 body .mainContainer .moviesBlock__categories {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  width: 90%;
+  gap: 50px;
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock__categories {
+    width: 100%;
+    gap: 100px;
+  }
 }
 body .mainContainer .moviesBlock__categories__category {
   max-width: 1200px;
-  padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   body .mainContainer .moviesBlock__categories__category {
     padding: 0;
-  }
-}
-@media screen and (min-width: 1200px) {
-  body .mainContainer .moviesBlock__categories__category {
-    gap: 20px;
   }
 }
 body .mainContainer .moviesBlock__categories__category h2 {
   width: 100%;
   margin-bottom: 20px;
+}
+@media screen and (min-width: 1200px) {
+  body .mainContainer .moviesBlock__categories__category h2 {
+    margin-bottom: 40px;
+  }
 }
 body .mainContainer .moviesBlock__categories__category .arrow {
   display: none;
@@ -152,22 +212,30 @@ body .mainContainer .moviesBlock__categories__category .arrow {
   background-color: #874C62;
   cursor: pointer;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1000px) {
   body .mainContainer .moviesBlock__categories__category .arrow {
     display: inline-block;
   }
 }
 body .mainContainer .moviesBlock__categories__category .carouselContainer {
   display: flex;
-  justify-content: space-around;
   height: fit-content;
-  width: 460px;
+  width: 100%;
   overflow-x: scroll;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer {
+    width: 500px;
+  }
+}
+@media screen and (min-width: 800px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer {
+    width: 750px;
+  }
+}
+@media screen and (min-width: 1000px) {
   body .mainContainer .moviesBlock__categories__category .carouselContainer {
     overflow: hidden;
-    width: 750px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -176,14 +244,16 @@ body .mainContainer .moviesBlock__categories__category .carouselContainer {
   }
 }
 body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent {
-  display: flex;
-  width: 500px;
   position: relative;
+  width: 500px;
+  display: flex;
+  gap: 10px;
+  left: 0;
   transition: left 0.5s;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
   body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent {
-    width: 750px;
+    gap: 0;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -194,27 +264,38 @@ body .mainContainer .moviesBlock__categories__category .carouselContainer .carou
 body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent .movie {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
   gap: 20px;
   align-items: center;
-  min-width: 250px;
+  min-width: 100px;
   cursor: pointer;
+}
+@media screen and (min-width: 600px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent .movie {
+    min-width: 250px;
+  }
 }
 body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent .movie .thumbnail {
   width: 100%;
-  min-height: 260px;
+  min-height: 160px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
+@media screen and (min-width: 600px) {
+  body .mainContainer .moviesBlock__categories__category .carouselContainer .carouselContent .movie .thumbnail {
+    min-height: 260px;
+  }
+}
 body .modale {
   position: fixed;
   top: 0;
-  left: -80%;
+  left: -100%;
   z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 70%;
+  width: 90%;
   height: 95vh;
   padding: 20px;
   border: 2px solid #874C62;
@@ -222,6 +303,12 @@ body .modale {
   background-color: #F2D388;
   transition: left 0.5s;
   overflow-y: scroll;
+}
+@media screen and (min-width: 600px) {
+  body .modale {
+    width: 70%;
+    left: -80%;
+  }
 }
 body .modale__close {
   width: 30px;
@@ -231,8 +318,14 @@ body .modale__close {
 }
 body .modale__content {
   display: flex;
+  flex-direction: column;
   gap: 50px;
   width: 100%;
+}
+@media screen and (min-width: 1200px) {
+  body .modale__content {
+    flex-direction: row;
+  }
 }
 body .modale__content__picture {
   min-width: 300px;

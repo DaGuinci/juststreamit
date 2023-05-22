@@ -7,15 +7,16 @@ const request = await api_request(type);
 const highlight_infos = request[0];
 
 // Remplir le html
-const highlight_movie = document.querySelector('.moviesBlock__highlight');
-highlight_movie.style.backgroundImage = `url('${highlight_infos.image_url}')`;
+const highlight_movie_block = document.querySelector('.moviesBlock__highlight');
+const highlight_picture = document.querySelector('.moviesBlock__highlight__picture');
+highlight_picture.style.backgroundImage = `url('${highlight_infos.image_url}')`;
 const highlight_title_tag = document.querySelector('.movieTitle');
 highlight_title_tag.innerHTML = highlight_infos.title;
-const highlight_description = highlight_movie.querySelector('.moviesBlock__highlight__description');
+const highlight_description = document.querySelector('.moviesBlock__highlight__description__synopsis');
 highlight_description.innerHTML = highlight_infos.description ? highlight_infos.description : 'NC';
 
 // Activer la modale
-highlight_movie.addEventListener("click", function() {
+highlight_movie_block.addEventListener("click", function() {
     fullfill_modale(highlight_infos);
     out_of_modale.style.left = '0';
     modale.style.left = '0';
@@ -26,6 +27,7 @@ const out_of_modale = document.querySelector('.outOfModale');
 
 // Créer la fenêtre modale
 const modale = document.querySelector('.modale');
+
 // remplir la fenetre modale
 function fullfill_modale(movie_infos) {
     const datas = [
@@ -54,13 +56,13 @@ function fullfill_modale(movie_infos) {
     // Activer le bouton close
     const close = modale.querySelector('.modale__close');
     close.addEventListener("click", function() {
-        out_of_modale.style.left = '-100%';
-        modale.style.left = '-80%';
+        out_of_modale.style.removeProperty('left');
+        modale.style.removeProperty('left');
     });
 
     out_of_modale.addEventListener("click", function() {
-        out_of_modale.style.left = '-100%';
-        modale.style.left = '-80%';
+        out_of_modale.style.removeProperty('left');
+        modale.style.removeProperty('left');
     });
 }
 
