@@ -1,4 +1,3 @@
-import {Movie} from './classes/movie.js'
 import { api_request } from './classes/request.js';
 
 // Récupérer les informations sur le film en highlight
