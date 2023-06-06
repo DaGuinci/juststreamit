@@ -330,6 +330,7 @@ body{
         }
 
         &__close{
+            background-image: url('../src/close.svg');
             width: 30px;
             min-height: 30px;
             background-size: contain;
