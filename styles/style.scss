@@ -129,9 +129,10 @@ body{
             }
 
             &__highlight{
+                position: relative;
                 width: 90%;
                 display: flex;
-                flex-direction: column;
+                justify-content: center;
                 cursor: pointer;
                 gap: 30px;
 
@@ -149,11 +150,26 @@ body{
                 }
 
                 &__description{
+                    position: relative;
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
+                    justify-content: flex-end;
                     align-items: flex-start;
-                    gap: 30px;
+                    gap: 10px;
+                    padding: 20px;
+                    width: 280px;
+                    height: 450px;
+
+                    @media screen and (min-width: $medium) {
+                        gap: 30px;
+                        width: 400px;
+                        height: 600px;
+                    }
+
+                    @media screen and (min-width: $xlarge) {
+                        min-width: 450px;
+                        height: 670px;
+                    }
 
                     &__buttons{
                         width: 50%;
@@ -167,25 +183,27 @@ body{
 
                 }
 
-                &__picture{
-                    min-width: 180px;
-                    height: 270px;
+                &__image{
+                    position: absolute;
+                    min-width: 270px;
+                    height: 400px;
                     background-size: contain;
                     background-repeat: no-repeat;
+                    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 20%, transparent 100%);
 
                     @media screen and (min-width: $medium) {
-                        min-width: 200px;
-                        height: 300px;
+                        min-width: 380px;
+                        height: 550px;
                     }
 
                     @media screen and (min-width: $large) {
-                        min-width: 250px;
-                        height: 370px;
+                        min-width: 410px;
+                        height: 610px;
                     }
 
                     @media screen and (min-width: $xlarge) {
-                        min-width: 300px;
-                        height: 450px;
+                        min-width: 450px;
+                        height: 670px;
                     }
                 }
             }

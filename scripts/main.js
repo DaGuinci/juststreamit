@@ -7,7 +7,7 @@ const highlight_infos = request[0];
 
 // Remplir le html
 const highlight_movie_block = document.querySelector('.moviesBlock__highlight');
-const highlight_picture = document.querySelector('.moviesBlock__highlight__picture');
+const highlight_picture = document.querySelector('.moviesBlock__highlight__image');
 highlight_picture.style.backgroundImage = `url('${highlight_infos.image_url}')`;
 const highlight_title_tag = document.querySelector('.movieTitle');
 highlight_title_tag.innerHTML = highlight_infos.title;
@@ -68,7 +68,9 @@ function fullfill_modale(movie_infos) {
 // Renseigner les catégories souhaitées, accompagnée de leur traduction
 const categories =[
     ['Drama', 'Drames'],
-    ['Comedy','Comedies']
+    ['Comedy','Comedies'],
+    ['Crime', 'Crime'],
+    // ['History', 'Histoire']
 ]
 
 // Créer categories blocks
